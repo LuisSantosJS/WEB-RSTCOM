@@ -141,7 +141,7 @@ const List: React.FC = () => {
                                     <span className={`${styles.titleItem} ${res.isComplete && styles.isFinishText}`}>{res.title}</span>
                                     {/* <span className={styles.descriptionItem}>{res.description}</span> */}
                                 </div>
-                                <span onClick={() => onDelete(res.id)} className={styles.remove}>Remover</span>
+                                {!res.isComplete && <span onClick={() => onDelete(res.id)} className={styles.remove}>Remover</span>}
                             </div>
 
                         )
