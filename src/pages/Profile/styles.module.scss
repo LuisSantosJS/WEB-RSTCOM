@@ -28,7 +28,7 @@
     display: flex;
     width: 50%;
     height: 45px;
-    max-width:200px;
+    max-width:180px;
     padding: 4px;
     align-items: center;
     background-color: #071AC8;
@@ -51,4 +51,32 @@
     display: flex;
     width: 95%;
     align-items: flex-start;
+}
+
+.rowProfile{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+}
+.textProfile{
+    color: #707070;
+    font-size: 14px;
+    padding-top: 7px;
+    text-decoration: underline;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.profileLogo{
+    width: 34px;
+    text-align: center;
+    height: 34px;
+}
+.itemProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }

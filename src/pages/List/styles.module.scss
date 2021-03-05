@@ -31,12 +31,12 @@
     width: 95%;
     text-align: left;
     padding-top: 30px;
+    text-decoration: underline;
 }
 
 .collums{
     display: flex;
     flex-direction: column;
-    width: 85%;
     cursor: pointer;
 }
 
@@ -47,17 +47,16 @@
 }
 
 .titleItem{
-    color: #191919;
+    color: #707070;
     font-size: 20px;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    max-width: 98%;
-    -webkit-line-clamp: 2; 
     padding-left: 5px;
-    display: inline-block;
-    white-space: normal;
+    padding-right: 5px;
     overflow: hidden !important;
-    -webkit-box-orient: vertical;
+    text-decoration: underline;
+}
+
+.isFinishText{
+    text-decoration: line-through !important;
 }
 
 .descriptionItem{
@@ -78,6 +77,7 @@
     width: calc(100% - 260px);
     right: 0px;
     height: 60px;
+    background-color: white;
     justify-content: space-around;
     flex-direction: row;
     align-items: flex-start;
@@ -86,11 +86,12 @@
 }
 
 .input{
-    width: 70%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     background-color: white;
     border-width: 2px;
-    font-size: 22px;
+    padding-left: 5px;
+    font-size: 18px;
 }
 
 .submit{
@@ -108,7 +109,7 @@
     border-radius: 20px;
     span{
         color: white;
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 .submit:hover{
@@ -119,5 +120,9 @@
 @media only screen and (max-width: 799px) {
     .viewInputsEnd{
         width: 100%;
+    }
+    .input{
+        min-width: 80%;
+        
     }
 }

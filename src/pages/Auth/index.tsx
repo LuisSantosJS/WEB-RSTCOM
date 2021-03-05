@@ -74,12 +74,14 @@ const Auth: React.FC = () => {
                     <input className={styles.inputs}
                         placeholder={'Nome'}
                         value={name}
+                        disabled={loading}
                         onChange={(e) => setName(e.target.value)}
                     />
                     <br />
                     <input className={styles.inputs}
                         placeholder={'E-mail'}
                         value={email}
+                        disabled={loading}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <br />
@@ -88,6 +90,7 @@ const Auth: React.FC = () => {
                         className={styles.inputs}
                         placeholder={'Senha'}
                         value={password}
+                        disabled={loading}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <br />
@@ -95,6 +98,7 @@ const Auth: React.FC = () => {
                         type='password'
                         className={styles.inputs}
                         value={password2}
+                        disabled={loading}
                         onChange={(e) => setPassword2(e.target.value)}
                         placeholder={'Confirmar Senha'}
                     />

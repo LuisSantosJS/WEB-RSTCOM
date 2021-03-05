@@ -139,7 +139,7 @@ const List: React.FC = () => {
                                     />
                                     <div style={{ padding: 5 }} />
                                     <div className={styles.collums}>
-                                        <span className={styles.titleItem}>{res.title}</span>
+                                        <span className={`${styles.titleItem} ${res.isComplete && styles.isFinishText}`}>{res.title}</span>
                                         {/* <span className={styles.descriptionItem}>{res.description}</span> */}
                                     </div>
                                     <span onClick={() => onDelete(res.id)} className={styles.remove}>Remover</span>
@@ -160,7 +160,7 @@ const List: React.FC = () => {
                 />
                 <button onClick={onCreate} className={styles.submit}>
                     <span>
-                        {loading ? 'AGUARDE' : 'ENVIAR'}
+                        {loading ? 'AGUARDE' : 'SALVAR'}
                     </span>
                 </button>
             </div>

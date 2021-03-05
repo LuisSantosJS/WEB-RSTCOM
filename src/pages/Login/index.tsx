@@ -69,12 +69,14 @@ const Login: React.FC = () => {
                     <input className={styles.inputs}
                         placeholder={'E-mail'}
                         value={email}
+                        disabled={loading}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <br />
                     <input type='password' className={styles.inputs}
                         placeholder={'Senha'}
                         value={password}
+                        disabled={loading}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <br />

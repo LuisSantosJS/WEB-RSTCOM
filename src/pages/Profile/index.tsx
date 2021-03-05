@@ -3,7 +3,7 @@ import { useUserData } from '../../context/auth';
 import styles from './styles.module.scss'
 import { useToasts } from 'react-toast-notifications'
 import api from '../../service/api';
-
+import ProfileLogo from '../../assets/profile.png'
 
 const Profile: React.FC = () => {
     const { userData, setUserData } = useUserData()
@@ -63,15 +63,25 @@ const Profile: React.FC = () => {
             <div className={styles.container}>
                 <span className={styles.title}>/Dados Pessoais</span>
                 <br />
+                <br />
+                <div className={styles.rowProfile}>
+                    <div className={styles.itemProfile}>
+                        <img className={styles.profileLogo} src={ProfileLogo} />
+                        <span className={styles.textProfile}>Alterar Foto</span>
+                    </div>
+                </div>
+                <br />
                 <input className={styles.inputs}
                     placeholder={'Nome'}
                     value={name}
+                    disabled={loading}
                     onChange={(e) => setName(e.target.value)}
                 />
                 <br />
                 <input className={styles.inputs}
                     placeholder={'Email'}
                     value={email}
+                    disabled={loading}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <br />
@@ -79,6 +89,7 @@ const Profile: React.FC = () => {
                     placeholder={'Nova Senha'}
                     value={password}
                     type='password'
+                    disabled={loading}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
@@ -86,12 +97,13 @@ const Profile: React.FC = () => {
                     placeholder={'Repetir nova Senha'}
                     type='password'
                     value={password2}
+                    disabled={loading}
                     onChange={(e) => setPassword2(e.target.value)}
                 />
                 <br />
                 <div className={styles.row}>
                     <button onClick={onSubmit} className={styles.submit}>
-                        <span>{loading ? 'AGUARDE' : 'ATUALIZAR'}</span>
+                        <span>{loading ? 'AGUARDE...' : 'EDITAR'}</span>
                     </button>
                 </div>
             </div>
