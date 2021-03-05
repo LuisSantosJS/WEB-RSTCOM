@@ -1,0 +1,123 @@
+.container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    max-height: auto;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: scroll !important;
+}
+
+.itemView{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width:95%;
+    height: 57px;
+    flex-direction: row;
+}
+
+.title{
+    color: red;
+    font-size: 20px;
+    width: 95%;
+    text-align: left;
+    padding-top: 30px;
+}
+
+.subTitle{
+    color: #707070;
+    font-size: 18px;
+    width: 95%;
+    text-align: left;
+    padding-top: 30px;
+}
+
+.collums{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    cursor: pointer;
+}
+
+.remove{
+    color: red;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.titleItem{
+    color: #191919;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 98%;
+    -webkit-line-clamp: 2; 
+    padding-left: 5px;
+    display: inline-block;
+    white-space: normal;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical;
+}
+
+.descriptionItem{
+    color: #191919;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-width: 98%;
+    -webkit-line-clamp: 2; 
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical;
+}
+
+.viewInputsEnd{
+    display: flex;
+    width: calc(100% - 260px);
+    right: 0px;
+    height: 60px;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-start;
+    top: calc(100vh - 75px);
+    position: absolute;
+}
+
+.input{
+    width: 70%;
+    height: 90%;
+    background-color: white;
+    border-width: 2px;
+    font-size: 22px;
+}
+
+.submit{
+    display: flex;
+    width: 40%;
+    height: 45px;
+    max-width:100px;
+    padding: 4px;
+    align-items: center;
+    background-color: #071AC8;
+    justify-content: center;
+    outline: 0px;
+    border-width: 0px;
+    cursor: pointer;
+    border-radius: 20px;
+    span{
+        color: white;
+        font-size: 18px;
+    }
+}
+.submit:hover{
+    background-color: #2437e2;
+}
+
+
+@media only screen and (max-width: 799px) {
+    .viewInputsEnd{
+        width: 100%;
+    }
+}

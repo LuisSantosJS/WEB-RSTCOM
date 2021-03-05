@@ -1,0 +1,89 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    min-height: 100vh;
+
+}
+.imageBackground{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    height: 100vh;
+    background-image: url('../../assets/bg.png');
+    background-size: cover;
+}
+
+.containerForm{
+    display: flex;
+    background-color:white;
+    flex-direction: column;
+    width: 30vw;
+    min-width: 400px !important;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 140px;
+    height: 140px;
+}
+
+.title{
+    color: #000000;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 15px;
+}
+
+.inputs{
+    display: flex;
+    width: 70%;
+    height: 40px;
+    padding-left: 4px;
+    max-width: 300px;
+    padding: 4px;
+}
+
+.submit{
+    display: flex;
+    width: 70%;
+    height: 55px;
+    max-width: 300px;
+    padding: 4px;
+    align-items: center;
+    background-color: #071AC8;
+    justify-content: center;
+    outline: 0px;
+    border-width: 0px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.submit:hover{
+    background-color: #2437e2;
+}
+
+.textSubmit{
+    color: white;
+    font-size: 20px;
+}
+.textLogin{
+    color: #000000;
+    font-size: 20px;
+    cursor: pointer;
+}
+@media only screen and (max-width: 799px) {
+    .container{
+        flex-direction: column-reverse;
+    }
+    .imageBackground{
+        width: 100vw;
+        height: 70vh;
+    }
+    .containerForm{
+        width: 100vw;
+        height: 90vh;
+    }
+  }
