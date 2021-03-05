@@ -128,24 +128,22 @@ const List: React.FC = () => {
                 {list.map((res: ListData, index: number) => {
                     if (res) {
                         return (
-                            <>
-                                <div key={String(res.id)} className={styles.itemView}>
-                                    <input
-                                        type="checkbox"
-                                        defaultChecked={Boolean(res.isComplete)}
-                                        checked={Boolean(res.isComplete)}
-                                        value={String(Boolean(res.isComplete))}
-                                        onChange={(e) => onCheck(res.id, index)}
-                                    />
-                                    <div style={{ padding: 5 }} />
-                                    <div className={styles.collums}>
-                                        <span className={`${styles.titleItem} ${res.isComplete && styles.isFinishText}`}>{res.title}</span>
-                                        {/* <span className={styles.descriptionItem}>{res.description}</span> */}
-                                    </div>
-                                    <span onClick={() => onDelete(res.id)} className={styles.remove}>Remover</span>
+                            <div key={String(res.id)} className={styles.itemView}>
+                                <input
+                                    type="checkbox"
+                                    defaultChecked={Boolean(res.isComplete)}
+                                    checked={Boolean(res.isComplete)}
+                                    value={String(Boolean(res.isComplete))}
+                                    onChange={(e) => onCheck(res.id, index)}
+                                />
+                                <div style={{ padding: 5 }} />
+                                <div className={styles.collums}>
+                                    <span className={`${styles.titleItem} ${res.isComplete && styles.isFinishText}`}>{res.title}</span>
+                                    {/* <span className={styles.descriptionItem}>{res.description}</span> */}
                                 </div>
-                                <br />
-                            </>
+                                <span onClick={() => onDelete(res.id)} className={styles.remove}>Remover</span>
+                            </div>
+
                         )
                     }
                 })}
