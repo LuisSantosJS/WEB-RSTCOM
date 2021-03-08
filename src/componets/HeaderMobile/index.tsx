@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import LogoIcon from '../../assets/logo-rstcom-ok-.png'
 import { useHistory } from 'react-router-dom'
 import MenuIcon from '../../assets/menu.png'
-import styles from './styles.module.scss'
 import { useUserData, useUserSaved } from '../../context/auth'
 interface Props {
     styles: any
