@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LogoIcon from '../../assets/logo-rstcom-ok-.png'
 import { useHistory } from 'react-router-dom'
 import MenuIcon from '../../assets/menu.png'
-import { useUserData, useUserSaved } from '../../context/auth'
+import { useUserData, useOnExit } from '../../context/auth'
 interface Props {
     styles: any
 }
@@ -10,11 +10,7 @@ const HeaderMobile: React.FC<Props> = ({ styles }) => {
     const { userData } = useUserData()
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const history = useHistory()
-    const { setUserSaved } = useUserSaved()
-    const onExit = () => {
-        localStorage.removeItem('@userData')
-        setUserSaved(false)
-    }
+    const { onExit } = useOnExit()
     const handleHistory = (name: string) => {
         history.push(name)
         setIsOpen(false)
@@ -30,7 +26,7 @@ const HeaderMobile: React.FC<Props> = ({ styles }) => {
                     <span className={styles.emailUser}>{userData.email}</span>
                 </div>
                 <div className={styles.rowExitView}>
-                    <span onClick={onExit}>SAIR</span>
+                    <span onClick={() => onExit()}>SAIR</span>
                 </div>
             </div>
 

@@ -39,7 +39,8 @@ const Login: React.FC = () => {
                     id: value.id,
                     email: value.email,
                     name: value.name,
-                    token: res.data.token
+                    token: res.data.token,
+                    avatar: value.avatar
                 }
                 return onSaveFinish(data)
             }
@@ -61,7 +62,7 @@ const Login: React.FC = () => {
         <>
             <div className={styles.container}>
                 <div className={styles.imageBackground} >
-                    <img className={styles.logo} src={LogoIcon} alt='imagem' />
+                    <img className={styles.logo}  src={LogoIcon} alt='imagem' />
                 </div>
                 <div className={styles.containerForm}>
                     <span className={styles.title}>Faça seu login</span>

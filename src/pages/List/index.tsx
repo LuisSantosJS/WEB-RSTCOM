@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import api from '../../service/api'
 import { useToasts } from 'react-toast-notifications'
-import { useUserData } from '../../context/auth'
+import { useUserData, useOnExit } from '../../context/auth'
 import { AxiosRequestConfig } from 'axios';
 import produce from 'immer'
 
@@ -12,9 +12,11 @@ interface ListData {
     description?: string;
     isComplete: boolean;
 }
+
 const List: React.FC = () => {
     const { userData } = useUserData()
     const { addToast } = useToasts()
+    const { onExit } = useOnExit()
     const [list, setList] = useState<ListData[]>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [sendText, setSendText] = useState<string>('');
@@ -31,6 +33,9 @@ const List: React.FC = () => {
     const load = () => {
         api.get(`/api/list/${userData.id}`, options).then(res => {
             if (res.data.message === 'error') {
+                if (res.data.value === 'Invalid token') {
+                    return onExit()
+                }
                 addToast(res.data.value, {
                     appearance: 'error',
                     autoDismiss: true,
@@ -55,6 +60,9 @@ const List: React.FC = () => {
             isComplete: !list[index].isComplete
         }, options).then(res => {
             if (res.data.message === 'error') {
+                if (res.data.value === 'Invalid token') {
+                    return onExit()
+                }
                 addToast(res.data.value, {
                     appearance: 'error',
                     autoDismiss: true,
@@ -80,6 +88,9 @@ const List: React.FC = () => {
         setList(newList)
         api.delete(`/api/list/${id}`, options).then(res => {
             if (res.data.message === 'error') {
+                if (res.data.value === 'Invalid token') {
+                    return onExit()
+                }
                 addToast(res.data.value, {
                     appearance: 'error',
                     autoDismiss: true,
@@ -103,6 +114,9 @@ const List: React.FC = () => {
             title: sendText
         }, options).then(res => {
             if (res.data.message === 'error') {
+                if (res.data.value === 'Invalid token') {
+                    return onExit()
+                }
                 addToast(res.data.value, {
                     appearance: 'error',
                     autoDismiss: true,

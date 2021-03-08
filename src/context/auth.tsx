@@ -6,6 +6,7 @@ interface UserData {
     name: string;
     email: string;
     token: string;
+    avatar: string;
 }
 
 type ContextType = {
@@ -13,6 +14,7 @@ type ContextType = {
     setUserData: (value: UserData) => void;
     userSaved: boolean | null;
     setUserSaved: (value: boolean) => void;
+    onExit: (value: void) => void;
 };
 
 const ContextApp = createContext<ContextType>({
@@ -20,6 +22,7 @@ const ContextApp = createContext<ContextType>({
     setUserData: (Value: UserData) => { },
     userSaved: false,
     setUserSaved: (value: boolean | null) => { },
+    onExit: (value: void) => { }
 });
 
 export type { UserData }
@@ -38,10 +41,17 @@ const ProviderAuth: React.FC = ({ children }) => {
         loadData()
     }, [])
 
+    const onExit = () => {
+        localStorage.removeItem('@userData')
+        setUserSaved(false)
+    }
+
+
     return (
         <ContextApp.Provider value={{
             userData, setUserData,
             userSaved, setUserSaved,
+            onExit
         }}>
             {children}
         </ContextApp.Provider>
@@ -59,5 +69,11 @@ export function useUserSaved() {
     const infoUser: ContextType = useContext(ContextApp);
     const { userSaved, setUserSaved } = infoUser;
     return { userSaved, setUserSaved };
+}
+
+export function useOnExit() {
+    const infoUser: ContextType = useContext(ContextApp);
+    const { onExit } = infoUser;
+    return { onExit };
 }
 

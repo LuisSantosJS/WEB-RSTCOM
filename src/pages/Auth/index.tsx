@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import styles from './styles.module.scss'
 import { useToasts } from 'react-toast-notifications'
 import LogoIcon from '../../assets/logo-rstcom-ok-.png'
+
 import { useUserData, useUserSaved, UserData } from '../../context/auth'
 import api from '../../service/api';
 const Auth: React.FC = () => {
@@ -45,7 +46,8 @@ const Auth: React.FC = () => {
                     id: value.id,
                     email: value.email,
                     name: value.name,
-                    token: res.data.token
+                    token: res.data.token,
+                    avatar: value.avatar
                 }
                 return onSaveFinish(data)
             }

@@ -22,12 +22,12 @@ const RouterMain: React.FC = () => {
     return (
         <BrowserRouter>
             <Container>
-                <Switch>
-                    <Route path="/" exact component={List} />
-                    <Route path="/list" exact component={List} />
-                    <Route path="/profile" exact component={Profile} />
-                    <Route component={List} />
-                </Switch>
+                    <Switch>
+                        <Route path="/" exact component={List} />
+                        <Route path="/list" exact component={List} />
+                        <Route path="/profile" exact component={Profile} />
+                        <Route component={List} />
+                    </Switch>
             </Container>
         </BrowserRouter>
     )

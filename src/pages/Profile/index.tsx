@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useUserData } from '../../context/auth';
+import { useUserData, useOnExit } from '../../context/auth';
 import styles from './styles.module.scss'
 import { useToasts } from 'react-toast-notifications'
 import api from '../../service/api';
-import ProfileLogo from '../../assets/profile.png'
+
 
 const Profile: React.FC = () => {
     const { userData, setUserData } = useUserData()
+    const { onExit } = useOnExit()
     const [name, setName] = useState<string>(userData.name)
     const [email, setEmail] = useState<string>(userData.email)
     const [loading, setLoading] = useState<boolean>(false);
@@ -34,6 +35,7 @@ const Profile: React.FC = () => {
             id: userData.id,
             email: String(email).toLowerCase(),
             name: name,
+            avatar: String(userData.avatar),
             password: password
         }, options).then(res => {
             if (res.data.message === 'success') {
@@ -46,6 +48,9 @@ const Profile: React.FC = () => {
                 localStorage.setItem('@userData', JSON.stringify(newVal))
 
             } else {
+                if (res.data.value === 'Invalid token') {
+                    return onExit()
+                }
                 addToast(res.data.value, {
                     appearance: 'error',
                     autoDismiss: true,
@@ -58,6 +63,19 @@ const Profile: React.FC = () => {
             })
         }).finally(() => setLoading(false))
     }
+    const onChangeImage = (e: any) => {
+        e.preventDefault()
+        const a: any = e.target.files;
+        if (String(a[0].name).length !== 0) {
+            var reader = new FileReader();
+            var file = a[0];
+            reader.onload = function (upload: any) {
+                setUserData({...userData, avatar: upload.target.result})
+                console.log(upload.target.result)
+            };
+            reader.readAsDataURL(file);
+        }
+    }
     return (
         <>
             <div className={styles.container}>
@@ -66,8 +84,9 @@ const Profile: React.FC = () => {
                 <br />
                 <div className={styles.rowProfile}>
                     <div className={styles.itemProfile}>
-                        <img className={styles.profileLogo} src={ProfileLogo} />
-                        <span className={styles.textProfile}>Alterar Foto</span>
+                        <img className={styles.profileLogo} src={userData.avatar} />
+                        <label className={styles.textProfileLabel} htmlFor={styles.textProfile}>Alterar Imagem</label>
+                        <input onChange={(e) => onChangeImage(e)} type='file' id={styles.textProfile} />
                     </div>
                 </div>
                 <br />

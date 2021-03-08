@@ -1,28 +1,26 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom'
 import LogoIcon from '../../assets/logo-rstcom-ok-.png'
-import { useUserData, useUserSaved } from '../../context/auth'
+import { useUserData, useOnExit } from '../../context/auth'
 
 interface Props {
     styles: any
 }
 const HeaderLeft: React.FC<Props> = ({ styles }) => {
     const { userData } = useUserData()
-    const { setUserSaved } = useUserSaved()
+    const { onExit } = useOnExit()
     const history = useHistory()
-    const onExit = () => {
-        localStorage.removeItem('@userData')
-        setUserSaved(false)
-    }
+
     const handleHistory = (name: string) => {
         history.push(name)
     }
+
     return (
         <>
             <div className={styles.menuLeftContainer}>
                 <div className={styles.header}>
                     <div className={styles.rowExitView}>
-                        <span onClick={onExit}>SAIR</span>
+                        <span onClick={() => onExit()}>SAIR</span>
                     </div>
                     <div className={styles.headerBody}>
                         <img className={styles.logo} src={LogoIcon} alt='imagem' />
