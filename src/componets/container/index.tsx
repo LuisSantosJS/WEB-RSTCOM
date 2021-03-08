@@ -1,15 +1,15 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import HeaderLeft from './Header'
-import HeaderMobile from './HeaderMobile'
+import HeaderLeft from '../Header'
+import HeaderMobile from '../HeaderMobile'
 const Container: React.FC = ({ children }) => {
 
     return (
         <>
 
             <div className={styles.container}>
-                <HeaderMobile styles={styles} />
-                <HeaderLeft styles={styles} />
+                <HeaderMobile  />
+                <HeaderLeft  />
                 <div className={styles.bodyContainer}>
                     {children}
                 </div>

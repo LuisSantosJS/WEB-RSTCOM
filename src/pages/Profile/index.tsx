@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
                     appearance: 'success',
                     autoDismiss: true,
                 })
-                const newVal = { ...userData, name: name, email: email }
+                const newVal = { ...userData, name: name, email: email, token: res.data.token }
                 setUserData(newVal)
                 localStorage.setItem('@userData', JSON.stringify(newVal))
 

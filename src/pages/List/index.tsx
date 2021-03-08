@@ -143,7 +143,6 @@ const List: React.FC = () => {
                                 </div>
                                 {!res.isComplete && <span onClick={() => onDelete(res.id)} className={styles.remove}>Remover</span>}
                             </div>
-
                         )
                     }
                 })}
