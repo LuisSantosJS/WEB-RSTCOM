@@ -5,9 +5,9 @@ import MenuIcon from '../../assets/menu.png'
 import styles from './styles.module.scss'
 import { useUserData, useUserSaved } from '../../context/auth'
 interface Props {
-
+    styles: any
 }
-const HeaderMobile: React.FC<Props> = () => {
+const HeaderMobile: React.FC<Props> = ({ styles }) => {
     const { userData } = useUserData()
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const history = useHistory()
@@ -41,8 +41,8 @@ const HeaderMobile: React.FC<Props> = () => {
                 </div>
                 <img className={styles.logo2} src={LogoIcon} alt='imagem' />
                 <div className={styles.collumn2}>
-                <span onClick={() => handleHistory('profile')} className={styles.textmenu}>Dados Pessoais</span>
-                <span onClick={() => handleHistory('list')} className={styles.textmenu}>Todo List</span>
+                    <span onClick={() => handleHistory('profile')} className={styles.textmenu}>Dados Pessoais</span>
+                    <span onClick={() => handleHistory('list')} className={styles.textmenu}>Todo List</span>
                 </div>
                 <br />
             </div>

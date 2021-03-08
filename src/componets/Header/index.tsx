@@ -2,11 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom'
 import LogoIcon from '../../assets/logo-rstcom-ok-.png'
 import { useUserData, useUserSaved } from '../../context/auth'
-import styles from './styles.module.scss'
-interface Props {
 
+interface Props {
+    styles: any
 }
-const HeaderLeft: React.FC<Props> = () => {
+const HeaderLeft: React.FC<Props> = ({ styles }) => {
     const { userData } = useUserData()
     const { setUserSaved } = useUserSaved()
     const history = useHistory()

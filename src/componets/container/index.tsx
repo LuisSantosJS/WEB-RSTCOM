@@ -8,8 +8,8 @@ const Container: React.FC = ({ children }) => {
         <>
 
             <div className={styles.container}>
-                <HeaderMobile  />
-                <HeaderLeft  />
+                <HeaderMobile styles={styles} />
+                <HeaderLeft styles={styles} />
                 <div className={styles.bodyContainer}>
                     {children}
                 </div>
